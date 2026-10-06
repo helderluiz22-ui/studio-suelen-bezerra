@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Suelen Bezerra | Nail Designer</title>
+<meta name="description" content="Studio Suelen Bezerra — Nail Designer. Agendamento, procedimentos, resultados e atendimento personalizado para realçar a sua beleza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg-color:#F7F3EF;
+  --card-bg:#FFFFFF;
+  --text-primary:#5E4B35;
+  --text-secondary:#7A6A58;
+  --accent-color:#A88C6D;
+  --accent-soft:#EFE3D7;
+  --accent-deep:#8C7052;
+  --shadow-soft:0 12px 30px rgba(94,75,53,.08);
+  --shadow-lift:0 18px 40px rgba(94,75,53,.13);
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background-color:#E6E1DB;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(168,140,109,.16), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(122,106,88,.14), transparent 50%);
+  background-attachment:fixed;
+  font-family:'Montserrat', sans-serif;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  color:var(--text-secondary);
+  -webkit-font-smoothing:antialiased;
+}
+
+.app-container{
+  background-color:var(--bg-color);
+  width:100%;
+  max-width:430px;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+  padding-bottom:40px;
+  box-shadow:0 0 60px rgba(94,75,53,.16);
+}
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress{
+  position:fixed;
+  top:0;left:0;
+  height:3px;width:0%;
+  background:linear-gradient(90deg,var(--accent-color),var(--accent-deep));
+  z-index:120;
+  transition:width .12s linear;
+}
+
+/* ---------- Hero ---------- */
+.hero-section{
+  padding:44px 22px 26px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-section::before{
+  content:"";
+  position:absolute;
+  inset:-40% -20% auto -20%;
+  height:340px;
+  background:radial-gradient(closest-side, rgba(168,140,109,.18), transparent);
+  animation:breathe 11s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes breathe{
+  0%,100%{transform:scale(1) translateY(0);opacity:.85;}
+  50%{transform:scale(1.12) translateY(12px);opacity:1;}
+}
+
+.profile-photo{
+  position:relative;
+  width:172px;height:172px;
+  margin:22px auto 12px;
+  z-index:2;
+}
+.profile-photo .ring{
+  position:absolute;inset:-11px;
+  border-radius:50%;
+  animation:spin 26s linear infinite;
+}
+.profile-photo .ring svg{width:100%;height:100%;display:block;}
+.profile-photo .photo-frame{
+  width:100%;height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  background:linear-gradient(150deg,#E9DCCB,#CDB79B);
+  box-shadow:0 20px 42px rgba(94,75,53,.22);
+  position:relative;
+}
+.profile-photo img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.02);
+  transition:transform 1.1s var(--ease-out), opacity .8s ease;
+}
+.profile-photo:hover img{transform:scale(1.09);}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.brand-name{
+  font-family:'Playfair Display', serif;
+  color:var(--text-primary);
+  font-size:29px;
+  line-height:1.22;
+  margin:12px 0 8px;
+  font-weight:500;
+  letter-spacing:.2px;
+  position:relative;z-index:2;
+}
+.brand-name .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(18px);
+  animation:wordUp .85s var(--ease-out) forwards;
+}
+@keyframes wordUp{to{opacity:1;transform:translateY(0);}}
+
+.brand-subtitle{
+  color:var(--accent-color);
+  font-size:11px;
+  letter-spacing:5px;
+  margin:0;
+  text-transform:uppercase;
+  font-weight:500;
+  position:relative;z-index:2;
+  animation:fadeUp 1s .55s var(--ease-out) both;
+}
+.brand-description{
+  color:var(--text-secondary);
+  font-size:13.5px;
+  line-height:1.75;
+  margin:22px 6px 0;
+  position:relative;z-index:2;
+  animation:fadeUp 1s .72s var(--ease-out) both;
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* Social row */
+.social-icons-top{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:26px;
+  position:relative;z-index:2;
+  animation:fadeUp 1s .88s var(--ease-out) both;
+}
+.social-btn{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--card-bg);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-primary);
+  box-shadow:0 8px 20px rgba(94,75,53,.10);
+  transition:transform .35s var(--ease-out), background .35s ease, color .35s ease, box-shadow .35s ease;
+  text-decoration:none;
+}
+.social-btn svg{width:19px;height:19px;}
+.social-btn:hover{
+  transform:translateY(-5px) scale(1.06);
+  background:var(--accent-color);
+  color:#fff;
+  box-shadow:0 16px 30px rgba(168,140,109,.36);
+}
+.social-btn:active{transform:scale(.94);}
+
+/* Floating decorative dots */
+.sparkle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(168,140,109,.32);
+  pointer-events:none;
+  animation:floaty 9s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.55;}
+  50%{transform:translate3d(0,-18px,0) scale(1.18);opacity:1;}
+}
+
+/* ---------- Ticker ---------- */
+.ticker{
+  margin:30px 0 4px;
+  padding:13px 0;
+  border-top:1px solid rgba(168,140,109,.22);
+  border-bottom:1px solid rgba(168,140,109,.22);
+  overflow:hidden;
+  white-space:nowrap;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.ticker-track{
+  display:inline-flex;
+  gap:26px;
+  align-items:center;
+  animation:marquee 26s linear infinite;
+}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.ticker span{
+  font-size:10.5px;
+  letter-spacing:3.2px;
+  text-transform:uppercase;
+  color:var(--text-primary);
+  font-weight:500;
+}
+.ticker i{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--accent-color);display:inline-block;
+}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ---------- Stats ---------- */
+.stats-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  padding:22px 22px 6px;
+}
+.stat{
+  background:rgba(255,255,255,.7);
+  border:1px solid rgba(168,140,109,.18);
+  border-radius:16px;
+  padding:16px 8px;
+  text-align:center;
+}
+.stat .num{
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  color:var(--text-primary);
+  display:block;
+  line-height:1;
+}
+.stat .lbl{
+  font-size:9px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  margin-top:7px;
+  display:block;
+  color:var(--text-secondary);
+}
+
+/* ---------- Menu cards ---------- */
+.menu-cards{
+  padding:20px 20px 0;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+.card{
+  background-color:var(--card-bg);
+  border-radius:20px;
+  padding:19px 18px;
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(0,0,0,.03);
+  transition:transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(168,140,109,.10);
+}
+.card::after{
+  content:"";
+  position:absolute;top:0;left:-120%;
+  width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(168,140,109,.13),transparent);
+  transform:skewX(-18deg);
+  transition:left .75s var(--ease-out);
+  pointer-events:none;
+}
+.card:hover::after{left:135%;}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lift);
+}
+.card:active{transform:translateY(-1px) scale(.99);}
+
+.card-icon{
+  width:44px;height:44px;
+  display:flex;justify-content:center;align-items:center;
+  margin-right:15px;
+  border-radius:14px;
+  background:var(--accent-soft);
+  color:var(--accent-deep);
+  flex-shrink:0;
+  transition:transform .5s var(--ease-out), background .4s ease, color .4s ease;
+}
+.card-icon svg{width:21px;height:21px;}
+.card:hover .card-icon{
+  transform:rotate(-8deg) scale(1.07);
+  background:var(--accent-color);
+  color:#fff;
+}
+.card-text{flex:1;}
+.card-text h2{
+  font-family:'Playfair Display', serif;
+  color:var(--text-primary);
+  font-size:15px;
+  margin:0 0 5px 0;
+  letter-spacing:1.1px;
+  font-weight:600;
+}
+.card-text p{
+  color:var(--text-secondary);
+  font-size:11px;
+  line-height:1.55;
+  margin:0;
+}
+.card-arrow{
+  width:31px;height:31px;
+  border-radius:50%;
+  background-color:#F7F3EF;
+  display:flex;justify-content:center;align-items:center;
+  color:var(--accent-color);
+  flex-shrink:0;
+  margin-left:10px;
+  transition:transform .5s var(--ease-out), background .4s ease, color .4s ease;
+}
+.card-arrow svg{width:13px;height:13px;}
+.card:hover .card-arrow{
+  transform:translateX(3px) rotate(45deg);
+  background:var(--accent-color);
+  color:#fff;
+}
+
+/* ---------- Section headings ---------- */
+.section-head{
+  text-align:center;
+  padding:52px 26px 6px;
+}
+.section-eyebrow{
+  font-size:9.5px;
+  letter-spacing:3.4px;
+  text-transform:uppercase;
+  color:var(--accent-color);
+  margin:0 0 12px;
+  font-weight:500;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  line-height:1.32;
+  color:var(--text-primary);
+  margin:0;
+  font-weight:500;
+}
+.section-title em{font-style:italic;color:var(--accent-deep);}
+.section-lead{
+  font-size:12.5px;
+  line-height:1.8;
+  margin:14px auto 0;
+  max-width:330px;
+}
+
+/* ---------- Feature banner ---------- */
+.banner{
+  margin:26px 20px 0;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  min-height:230px;
+  display:flex;
+  align-items:flex-end;
+  background:linear-gradient(150deg,#C9B294,#9B8064);
+}
+.banner img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  transform:scale(1.14);
+  transition:transform 1.2s var(--ease-out), opacity .9s ease;
+}
+.banner.in-view img{transform:scale(1);}
+.banner:hover img{transform:scale(1.07);}
+.banner .veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(64,49,34,.82) 6%, rgba(64,49,34,.18) 58%, rgba(64,49,34,.05));
+}
+.banner-content{
+  position:relative;
+  padding:24px 22px;
+  color:#fff;
+}
+.banner-content h3{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  margin:0 0 8px;
+  font-weight:500;
+}
+.banner-content p{
+  font-size:11.5px;
+  line-height:1.75;
+  margin:0;
+  color:rgba(255,255,255,.86);
+  max-width:270px;
+}
+
+/* ---------- Benefits ---------- */
+.benefits{
+  padding:26px 20px 0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.benefit{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(168,140,109,.16);
+  border-radius:18px;
+  padding:16px 17px;
+  transition:transform .4s var(--ease-out), background .4s ease;
+}
+.benefit:hover{transform:translateX(5px);background:#fff;}
+.benefit .b-icon{
+  width:34px;height:34px;flex-shrink:0;
+  border-radius:11px;
+  background:var(--accent-soft);
+  color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;
+}
+.benefit .b-icon svg{width:17px;height:17px;}
+.benefit h4{
+  margin:2px 0 5px;
+  font-family:'Playfair Display',serif;
+  font-size:14.5px;
+  color:var(--text-primary);
+  font-weight:600;
+}
+.benefit p{margin:0;font-size:11px;line-height:1.65;}
+
+/* ---------- Gallery ---------- */
+.gallery{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:24px 20px 10px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.gallery::-webkit-scrollbar{display:none;}
+.g-item{
+  position:relative;
+  flex:0 0 auto;
+  width:290px;height:250px;
+  border-radius:14px;
+  overflow:hidden;
+  scroll-snap-align:center;
+  background:linear-gradient(150deg,#E4D3BF,#BFA287);
+}
+.g-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .9s var(--ease-out), opacity .8s ease;
+}
+.g-item:hover img{transform:scale(1.08);}
+.g-item figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:26px 14px 14px;
+  font-size:10px;letter-spacing:2.2px;text-transform:uppercase;
+  color:#fff;
+  background:linear-gradient(to top,rgba(60,46,32,.8),transparent);
+}
+.g-hint{
+  text-align:center;
+  font-size:9.5px;
+  letter-spacing:2.4px;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  opacity:.75;
+  margin:4px 0 0;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials{
+  margin:26px 20px 0;
+  position:relative;
+  min-height:216px;
+}
+.t-card{
+  background:var(--card-bg);
+  border:1px solid rgba(168,140,109,.16);
+  border-radius:22px;
+  padding:26px 22px 22px;
+  box-shadow:var(--shadow-soft);
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:translateY(18px) scale(.98);
+  transition:opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  pointer-events:none;
+}
+.t-card.active{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.t-quote{
+  font-family:'Playfair Display',serif;
+  font-size:16px;
+  line-height:1.62;
+  color:var(--text-primary);
+  margin:12px 0 18px;
+  font-style:italic;
+}
+.t-stars{display:flex;gap:4px;color:var(--accent-color);}
+.t-stars svg{width:14px;height:14px;}
+.t-person{display:flex;align-items:center;gap:11px;}
+.t-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent-soft);
+  color:var(--accent-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:14px;
+}
+.t-person strong{
+  display:block;font-size:11.5px;color:var(--text-primary);letter-spacing:.6px;font-weight:600;
+}
+.t-person span{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--text-secondary);}
+.t-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;}
+.t-dot{
+  width:7px;height:7px;border-radius:50%;
+  border:none;padding:0;cursor:pointer;
+  background:rgba(168,140,109,.35);
+  transition:width .4s var(--ease-out), background .4s ease;
+}
+.t-dot.active{width:22px;border-radius:6px;background:var(--accent-color);}
+
+/* ---------- FAQ ---------- */
+.faq{padding:24px 20px 0;display:flex;flex-direction:column;gap:10px;}
+.faq-item{
+  background:rgba(255,255,255,.66);
+  border:1px solid rgba(168,140,109,.16);
+  border-radius:16px;
+  overflow:hidden;
+  transition:background .4s ease, box-shadow .4s ease;
+}
+.faq-item.open{background:#fff;box-shadow:var(--shadow-soft);}
+.faq-q{
+  width:100%;
+  background:none;border:none;
+  text-align:left;
+  padding:17px 18px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:.5px;
+  color:var(--text-primary);
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.faq-q .plus{
+  width:20px;height:20px;flex-shrink:0;
+  position:relative;
+}
+.faq-q .plus::before,.faq-q .plus::after{
+  content:"";position:absolute;
+  background:var(--accent-color);
+  border-radius:2px;
+  transition:transform .45s var(--ease-out), opacity .3s ease;
+}
+.faq-q .plus::before{left:0;top:9px;width:20px;height:2px;}
+.faq-q .plus::after{top:0;left:9px;width:2px;height:20px;}
+.faq-item.open .plus::after{transform:rotate(90deg);opacity:0;}
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .55s var(--ease-out);
+}
+.faq-a p{
+  margin:0;
+  padding:0 18px 18px;
+  font-size:11px;
+  line-height:1.8;
+  color:var(--text-secondary);
+}
+
+/* ---------- CTA ---------- */
+.cta{
+  margin:40px 20px 0;
+  background:linear-gradient(150deg,#A88C6D,#8B6E4E);
+  border-radius:24px;
+  padding:32px 24px;
+  text-align:center;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.cta::before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  background:rgba(255,255,255,.13);
+  top:-110px;right:-70px;
+  animation:floaty 10s ease-in-out infinite;
+}
+.cta::after{
+  content:"";
+  position:absolute;
+  width:150px;height:150px;
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  bottom:-80px;left:-50px;
+  animation:floaty 12s ease-in-out infinite reverse;
+}
+.cta h3{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  line-height:1.35;
+  margin:0 0 10px;
+  font-weight:500;
+  position:relative;z-index:2;
+}
+.cta p{
+  font-size:11.5px;line-height:1.8;
+  color:rgba(255,255,255,.87);
+  margin:0 auto 22px;max-width:280px;
+  position:relative;z-index:2;
+}
+.btn-main{
+  display:inline-flex;align-items:center;gap:9px;
+  background:#fff;color:var(--text-primary);
+  padding:15px 26px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:11px;letter-spacing:1.9px;text-transform:uppercase;font-weight:600;
+  position:relative;z-index:2;
+  overflow:hidden;
+  transition:transform .4s var(--ease-out), box-shadow .4s ease;
+  box-shadow:0 14px 28px rgba(60,44,28,.24);
+}
+.btn-main svg{width:16px;height:16px;}
+.btn-main:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 38px rgba(60,44,28,.32);}
+.btn-main:active{transform:scale(.97);}
+.btn-main .sweep{
+  position:absolute;top:0;left:-60%;
+  width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(168,140,109,.22),transparent);
+  transform:skewX(-20deg);
+  animation:sweep 3.6s ease-in-out infinite;
+}
+@keyframes sweep{
+  0%{left:-60%;}
+  55%,100%{left:135%;}
+}
+
+/* ---------- Footer ---------- */
+.footer-section{
+  text-align:center;
+  padding:46px 22px 20px;
+}
+.footer-section h3{
+  font-family:'Playfair Display', serif;
+  color:var(--text-primary);
+  font-size:15px;
+  letter-spacing:3px;
+  font-weight:400;
+  margin:0 0 15px;
+}
+.divider{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent-color);font-size:10px;margin-bottom:22px;
+}
+.divider span{display:block;width:56px;height:1px;background-color:var(--accent-color);margin:0 11px;opacity:.6;}
+.divider .star{animation:twinkle 3.6s ease-in-out infinite;}
+@keyframes twinkle{
+  0%,100%{opacity:.55;transform:scale(1) rotate(0deg);}
+  50%{opacity:1;transform:scale(1.22) rotate(20deg);}
+}
+.social-icons-bottom{display:flex;justify-content:center;gap:18px;margin-bottom:28px;}
+.copyright{font-size:9.5px;line-height:1.9;color:var(--text-secondary);opacity:.72;margin:0;}
+
+/* ---------- Reveal animation ---------- */
+.js .reveal{opacity:0;transform:translateY(26px);}
+.js .reveal.in{
+  opacity:1;transform:translateY(0);
+  transition:opacity .85s var(--ease-out), transform .85s var(--ease-out);
+}
+.js .reveal-scale{opacity:0;transform:scale(.94);}
+.js .reveal-scale.in{
+  opacity:1;transform:scale(1);
+  transition:opacity .95s var(--ease-out), transform .95s var(--ease-out);
+}
+
+@media (min-width:431px){
+  .app-container{border-radius:26px;margin:26px 0;min-height:auto;}
+  body{align-items:flex-start;padding-bottom:10px;}
+}
+@media (max-width:360px){
+  .brand-name{font-size:25px;}
+  .card-text h2{font-size:14px;}
+  .g-item{width:172px;height:224px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.18s !important;
+    scroll-behavior:auto !important;
+  }
+  .js .reveal,.js .reveal-scale{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="app-container">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero-section">
+    <div class="sparkle" style="width:7px;height:7px;top:78px;left:34px;animation-delay:.4s;"></div>
+    <div class="sparkle" style="width:11px;height:11px;top:150px;right:28px;animation-delay:1.6s;"></div>
+    <div class="sparkle" style="width:5px;height:5px;top:262px;left:26px;animation-delay:2.4s;"></div>
+    <div class="sparkle" style="width:8px;height:8px;top:308px;right:44px;animation-delay:.9s;"></div>
+
+    <div class="profile-photo" id="profilePhoto" style="transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); transform: translate3d(0px, 0px, 0px);">
+      <div class="ring">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#A88C6D" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="3 9" stroke-linecap="round"></circle>
+        </svg>
+      </div>
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Suelen Bezerra — Nail Designer" onerror="this.style.opacity='0'">
+      </div>
+    </div>
+
+    <h1 class="brand-name" id="brandName"><span class="word" style="animation-delay:0.18s">Studio</span> <span class="word" style="animation-delay:0.31s">Suelen</span> <span class="word" style="animation-delay:0.44s">Bezerra</span></h1>
+    <p class="brand-subtitle">Nail Designer</p>
+
+    <p class="brand-description">
+      Unhas que traduzem quem você é. Cuidado em cada detalhe, técnica apurada e um
+      acabamento que realça a sua autoestima — do primeiro contato ao espelhamento final.
+    </p>
+
+    <div class="social-icons-top">
+      <a class="social-btn" href="#" onclick="return false" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <a class="social-btn" href="#" onclick="return false" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"></path>
+          <path transform="translate(3.86,2.86) scale(0.72)" fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Z"></path>
+        </svg>
+      </a>
+      <a class="social-btn" href="#" onclick="return false" aria-label="Localização">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= TICKER ================= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>Manicure</span><i></i>
+      <span>Nail Art</span><i></i>
+      <span>Alongamento</span><i></i>
+      <span>Blindagem</span><i></i>
+      <span>Molde F1</span><i></i>
+      <span>Spa dos Pés</span><i></i>
+      <span>Manicure</span><i></i>
+      <span>Nail Art</span><i></i>
+      <span>Alongamento</span><i></i>
+      <span>Blindagem</span><i></i>
+      <span>Molde F1</span><i></i>
+      <span>Spa dos Pés</span><i></i>
+    </div>
+  </div>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats-strip">
+    <div class="stat reveal" data-delay="0">
+      <span class="num"><span class="counter" data-target="7">7</span>+</span>
+      <span class="lbl">Anos de<br>experiência</span>
+    </div>
+    <div class="stat reveal" data-delay="110">
+      <span class="num"><span class="counter" data-target="500">500</span>+</span>
+      <span class="lbl">Clientes<br>atendidas</span>
+    </div>
+    <div class="stat reveal" data-delay="220">
+      <span class="num"><span class="counter" data-target="4.9" data-decimals="1">4.9</span></span>
+      <span class="lbl">Avaliação<br>média</span>
+    </div>
+  </section>
+
+  <!-- ================= MENU CARDS ================= -->
+  <main class="menu-cards">
+
+    <a href="#" onclick="return false" class="card reveal" data-delay="0">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18"></path><path d="M8.5 14.5h3"></path>
+        </svg>
+      </div>
+      <div class="card-text">
+        <h2>AGENDAMENTO</h2>
+        <p>Reserve o seu horário em poucos toques e garanta o momento que é só seu.</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </a>
+
+    <a href="#" onclick="return false" class="card reveal" data-delay="90">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"></path><path d="M14 3v5h5"></path><path d="M8.5 13h7M8.5 17h4.5"></path>
+        </svg>
+      </div>
+      <div class="card-text">
+        <h2>PROCEDIMENTOS</h2>
+        <p>Do clássico ao avançado: manicure, blindagem, alongamento, molde F1 e nail art.</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </a>
+
+    <a href="#" onclick="return false" class="card reveal" data-delay="180">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="3"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="m4 17 4.8-4.2a2 2 0 0 1 2.7 0L16 17"></path><path d="m14 14.4 1.6-1.3a2 2 0 0 1 2.7 0L21 15.6"></path>
+        </svg>
+      </div>
+      <div class="card-text">
+        <h2>RESULTADOS</h2>
+        <p>Antes e depois reais, clientes que voltam e um acabamento que fala por si.</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </a>
+
+    <a href="#" onclick="return false" class="card reveal" data-delay="270">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle>
+        </svg>
+      </div>
+      <div class="card-text">
+        <h2>LOCALIZAÇÃO</h2>
+        <p>Um espaço acolhedor, higienizado e silencioso — pensado para você relaxar.</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </a>
+
+    <a href="#" onclick="return false" class="card reveal" data-delay="360">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"></path><path d="M9 12h6M9 9h6"></path>
+        </svg>
+      </div>
+      <div class="card-text">
+        <h2>FALE CONOSCO</h2>
+        <p>Dúvidas, orçamentos ou dicas de manutenção? Respondo você pelo WhatsApp.</p>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </div>
+    </a>
+
+  </main>
+
+  <!-- ================= EXPERIÊNCIA ================= -->
+  <section>
+    <div class="section-head">
+      <p class="section-eyebrow reveal">A experiência</p>
+      <h2 class="section-title reveal" data-delay="90">Mais do que unhas:<br><em>um momento seu.</em></h2>
+      <p class="section-lead reveal" data-delay="180">
+        Cada atendimento é conduzido com calma, higienização rigorosa e produtos selecionados.
+        Você sai daqui não só com as unhas impecáveis, mas renovada.
+      </p>
+    </div>
+
+    <figure class="banner reveal-scale" id="banner">
+      <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Detalhe de manicure com acabamento delicado" onerror="this.style.opacity='0'">
+      <div class="veil"></div>
+      <figcaption class="banner-content">
+        <h3>Detalhes que fazem a diferença</h3>
+        <p>Técnica, precisão e um olhar artístico para entregar unhas bonitas, resistentes e com a sua personalidade.</p>
+      </figcaption>
+    </figure>
+
+    <div class="benefits">
+      <div class="benefit reveal">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.8 20 6v6c0 5-3.4 8.3-8 9.2C7.4 20.3 4 17 4 12V6l8-3.2Z"></path><path d="m9 12 2.2 2.2L15.4 10"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>Higiene sem concessões</h4>
+          <p>Instrumental esterilizado, descartáveis e bancada higienizada a cada cliente.</p>
+        </div>
+      </div>
+
+      <div class="benefit reveal" data-delay="110">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3.5 14.2 9l5.8.4-4.5 3.8 1.5 5.7L12 15.7 7 18.9l1.5-5.7L4 9.4 9.8 9 12 3.5Z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>Acabamento assinatura</h4>
+          <p>Cutícula trabalhada, formato harmonioso e brilho que dura semanas.</p>
+        </div>
+      </div>
+
+      <div class="benefit reveal" data-delay="220">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 1 0-7.1 7.1L12 21l8.4-8.3a5 5 0 0 0 0-7.1Z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>Atendimento personalizado</h4>
+          <p>Consulta rápida antes de tudo: entendo seu estilo, rotina e o que combina com você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALERIA ================= -->
+  <section>
+    <div class="section-head">
+      <p class="section-eyebrow reveal">Portfólio</p>
+      <h2 class="section-title reveal" data-delay="90">Resultados que <em>falam</em></h2>
+      <p class="section-lead reveal" data-delay="180">
+        Arraste para o lado e veja uma seleção de trabalhos feitos no studio.
+      </p>
+    </div>
+
+    <div class="gallery reveal">
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Esmaltação clássica" onerror="this.style.opacity='0'">
+        <figcaption>Nude Elegance</figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Nail art delicada" onerror="this.style.opacity='0'">
+        <figcaption>Nail Art Fina</figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Alongamento em gel" onerror="this.style.opacity='0'">
+        <figcaption>Alongamento Gel</figcaption>
+      </figure>
+      <figure class="g-item">
+        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Cuidado com as mãos" onerror="this.style.opacity='0'">
+        <figcaption>Spa &amp; Cuidado</figcaption>
+      </figure>
+    </div>
+    <p class="g-hint">Arraste para explorar</p>
+  </section>
+
+  <!-- ================= DEPOIMENTOS ================= -->
+  <section>
+    <div class="section-head">
+      <p class="section-eyebrow reveal">Clientes</p>
+      <h2 class="section-title reveal" data-delay="90">Quem sente, <em>conta.</em></h2>
+    </div>
+
+    <div class="testimonials reveal" id="testimonials">
+      <article class="t-card">
+        <div class="t-stars" aria-label="5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+        </div>
+        <p class="t-quote">“Saí me olhando no espelho a viagem inteira. O acabamento é outro nível — e o atendimento é tão caprichoso quanto o resultado.”</p>
+        <div class="t-person">
+          <div class="t-avatar">CM</div>
+          <div>
+            <strong>Camila M.</strong>
+            <span>Alongamento em gel</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="t-card active">
+        <div class="t-stars" aria-label="5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+        </div>
+        <p class="t-quote">“Minha unha era frágil e sempre quebrava. Depois do acompanhamento da Suelen, hoje elas crescem fortes e bonitas. Mudou tudo.”</p>
+        <div class="t-person">
+          <div class="t-avatar">JF</div>
+          <div>
+            <strong>Juliana F.</strong>
+            <span>Blindagem + manutenção</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="t-card">
+        <div class="t-stars" aria-label="5 estrelas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.5 2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.6 5.9 19.9l1.5-6.5-5-4.3 6.6-.6 2.9-6Z"></path></svg>
+        </div>
+        <p class="t-quote">“Ambiente impecável, pontualidade e um cuidado que você percebe em cada detalhe. Já sou cliente há três anos e não troco.”</p>
+        <div class="t-person">
+          <div class="t-avatar">RS</div>
+          <div>
+            <strong>Renata S.</strong>
+            <span>Nail art personalizada</span>
+          </div>
+        </div>
+      </article>
+
+      <div class="t-dots" id="tDots">
+        <button class="t-dot" aria-label="Depoimento 1"></button>
+        <button class="t-dot active" aria-label="Depoimento 2"></button>
+        <button class="t-dot" aria-label="Depoimento 3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section>
+    <div class="section-head">
+      <p class="section-eyebrow reveal">Dúvidas frequentes</p>
+      <h2 class="section-title reveal" data-delay="90">Tudo o que você<br>precisa <em>saber</em></h2>
+    </div>
+
+    <div class="faq">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Quanto tempo dura o alongamento?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>Com a manutenção correta — feita a cada 20 a 30 dias —, o alongamento se mantém bonito e saudável por muito tempo. Você recebe todas as orientações de cuidado ao final do atendimento.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-delay="90">
+        <button class="faq-q" aria-expanded="false">
+          Com que frequência devo fazer a manutenção?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>Em média de 15 em 15 dias para manicure tradicional e de 20 a 30 dias para alongamento e blindagem. Agendar com antecipação garante o horário que melhor se encaixa na sua rotina.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-delay="180">
+        <button class="faq-q" aria-expanded="false">
+          Você atende em domicílio?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>O atendimento principal é no studio, pensado para oferecer conforto, silêncio e higienização completa. Para grupos e ocasiões especiais, consulte a disponibilidade pelo WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal" data-delay="270">
+        <button class="faq-q" aria-expanded="false">
+          Como funciona o agendamento e o pagamento?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>É simples: escolha o procedimento, envie uma mensagem e eu confirmo o seu horário. Aceito Pix, dinheiro e cartão. Cancelamentos devem ser informados com no mínimo 12 horas de antecedência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta reveal-scale">
+    <h3>Seu próximo horário<br>está esperando por você</h3>
+    <p>Agende agora pelo WhatsApp e receba uma indicação personalizada do procedimento ideal.</p>
+    <a class="btn-main" href="#" onclick="return false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"></path>
+      </svg>
+      Agendar meu horário
+      <span class="sweep"></span>
+    </a>
+  </section>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer-section">
+    <h3 class="reveal">CONECTE-SE</h3>
+    <div class="divider reveal" data-delay="90">
+      <span></span>
+      <em class="star" style="font-style:normal;">✦</em>
+      <span></span>
+    </div>
+
+    <div class="social-icons-bottom reveal" data-delay="160">
+      <a class="social-btn" href="#" onclick="return false" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <a class="social-btn" href="#" onclick="return false" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"></path><path transform="translate(3.86,2.86) scale(0.72)" fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347Z"></path>
+        </svg>
+      </a>
+      <a class="social-btn" href="#" onclick="return false" aria-label="Site">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"></path>
+        </svg>
+      </a>
+    </div>
+
+    <p class="copyright">
+      © 2026 Studio Suelen Bezerra · Nail Designer<br>
+      Todos os direitos reservados. Feito com cuidado e delicadeza.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Kinetic brand name (word by word) ---------- */
+  var brand = document.getElementById('brandName');
+  if (brand) {
+    var words = brand.textContent.trim().split(/\s+/);
+    brand.innerHTML = words.map(function(w, i){
+      return '<span class="word" style="animation-delay:' + (0.18 + i * 0.13) + 's">' + w + '</span>';
+    }).join(' ');
+    if (reduceMotion) {
+      brand.querySelectorAll('.word').forEach(function(w){
+        w.style.animation = 'none';
+        w.style.opacity = '1';
+        w.style.transform = 'none';
+      });
+    }
+  }
+
+  /* ---------- Scroll progress bar ---------- */
+  var progress = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.pageYOffset / h) * 100 : 0;
+    if (progress) progress.style.width = Math.min(100, Math.max(0, p)) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  /* ---------- Reveal on scroll (staggered) ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-scale'));
+
+  function showEl(el){
+    var d = parseInt(el.getAttribute('data-delay') || '0', 10);
+    if (reduceMotion) d = 0;
+    el.style.transitionDelay = d + 'ms';
+    el.classList.add('in');
+    if (el.classList.contains('banner')) el.classList.add('in-view');
+    if (el.querySelectorAll) {
+      var counters = el.querySelectorAll('.counter');
+      if (counters.length) Array.prototype.forEach.call(counters, startCounter);
+    }
+  }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          showEl(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(showEl);
+  }
+
+  /* ---------- Animated counters ---------- */
+  function startCounter(el){
+    if (el.dataset.done === '1') return;
+    el.dataset.done = '1';
+    var target = parseFloat(el.getAttribute('data-target') || '0');
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    if (reduceMotion) {
+      el.textContent = target.toFixed(decimals);
+      return;
+    }
+    var duration = 1500;
+    var start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min(1, (ts - start) / duration);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(decimals);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(decimals);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- Hero pointer parallax (desktop only) ---------- */
+  var photoWrap = document.getElementById('profilePhoto');
+  if (photoWrap && window.matchMedia('(hover:hover)').matches && !reduceMotion) {
+    var hero = photoWrap.closest('.hero-section');
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      photoWrap.style.transform = 'translate3d(' + (x * 12) + 'px,' + (y * 12) + 'px,0)';
+    });
+    hero.addEventListener('mouseleave', function(){
+      photoWrap.style.transform = 'translate3d(0,0,0)';
+      photoWrap.style.transition = 'transform .7s cubic-bezier(.22,1,.36,1)';
+    });
+    photoWrap.style.transition = 'transform .35s cubic-bezier(.22,1,.36,1)';
+  }
+
+  /* ---------- Subtle magnetic effect on cards ---------- */
+  if (window.matchMedia('(hover:hover)').matches && !reduceMotion) {
+    document.querySelectorAll('.card').forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'translate3d(' + (x * 5) + 'px,' + (y * 5 - 4) + 'px,0)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- Testimonials carousel ---------- */
+  var tCards = Array.prototype.slice.call(document.querySelectorAll('.t-card'));
+  var tDots = Array.prototype.slice.call(document.querySelectorAll('.t-dot'));
+  var tIndex = 0;
+  var tTimer = null;
+
+  function goToT(i){
+    if (!tCards.length) return;
+    tIndex = (i + tCards.length) % tCards.length;
+    tCards.forEach(function(c, idx){ c.classList.toggle('active', idx === tIndex); });
+    tDots.forEach(function(d, idx){ d.classList.toggle('active', idx === tIndex); });
+  }
+  function startT(){
+    if (reduceMotion || tCards.length < 2) return;
+    stopT();
+    tTimer = setInterval(function(){ goToT(tIndex + 1); }, 6500);
+  }
+  function stopT(){
+    if (tTimer) { clearInterval(tTimer); tTimer = null; }
+  }
+
+  tDots.forEach(function(dot, idx){
+    dot.addEventListener('click', function(){
+      goToT(idx);
+      startT();
+    });
+  });
+
+  var tWrap = document.getElementById('testimonials');
+  if (tWrap) {
+    tWrap.addEventListener('mouseenter', stopT);
+    tWrap.addEventListener('mouseleave', startT);
+  }
+  startT();
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var panel = item.querySelector('.faq-a');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(function(other){
+        if (other !== item) {
+          other.classList.remove('open');
+          var op = other.querySelector('.faq-a');
+          var ob = other.querySelector('.faq-q');
+          if (op) op.style.maxHeight = '0px';
+          if (ob) ob.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        panel.style.maxHeight = '0px';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.faq-item.open .faq-a').forEach(function(p){
+      p.style.maxHeight = p.scrollHeight + 'px';
+    });
+  });
+
+  /* ---------- Smooth anchor scroll with offset ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = link.getAttribute('href');
+      if (!id || id === '#' || id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.pageYOffset - 20,
+        behavior: reduceMotion ? 'auto' : 'smooth'
+      });
+    });
+  });
+
+})();
+</script>
+
+
+<script>
+(function() {
+    function triggerReveals() {
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('in', 'is-visible');
+            }
+        });
+    }
+    // Trigger on load and after a short delay to catch timing issues
+    if (document.readyState === 'complete') {
+        triggerReveals();
+        setTimeout(triggerReveals, 100);
+    } else {
+        window.addEventListener('load', function() {
+            triggerReveals();
+            setTimeout(triggerReveals, 100);
+        });
+    }
+})();
+</script>
+</body></html>
